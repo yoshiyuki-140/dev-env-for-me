@@ -1,7 +1,11 @@
 version: '3'
 services:
-  dev:
+  my-dev:
+    # サービス名はプロジェクトや使用技術に合わせて変更してください
     build: .
     volumes:
-      - ./data:/home/kuro/data
-    user: kuro
+      - ./data:/home/dev
+    ports:
+      - "8000:8000" # コンテナがリッスンするポートに応じて変更してください
+    environment:
+      - PYTHONUNBUFFERED=1
